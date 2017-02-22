@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/16 17:35:20 by upierre-          #+#    #+#             */
+/*   Updated: 2017/02/16 18:08:39 by upierre-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
+}
+/*
+int		ft_iterative_factorial(int nb)
+{
+	int		i;
+	int		n;
+
+	if (nb >= 0)
+	{
+		i = nb;
+		n = nb;
+		while (i > 0)
+		{
+			nb = nb * n;
+			i--;
+		}
+	}
+	ft_putnbr(nb);
+	return(nb);
+}
+*/
+
+int		ft_iterative_factorial(int nb)
+{
+		int	i;
+		int	f;
+			
+		if (nb >= 2)
+		{
+			i = 0;
+			f = nb;
+			while (++i < nb)
+				f = f * (nb - i);
+			ft_putnbr(f);
+			return (f);
+		}
+		else
+			return (1);
+}
+
+int		main(void)
+{
+	int		nb;
+
+	nb = 2;
+	ft_iterative_factorial(nb);
+	return (0);
+}
