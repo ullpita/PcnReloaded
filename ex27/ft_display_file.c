@@ -6,7 +6,7 @@
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/22 16:33:28 by upierre-          #+#    #+#             */
-/*   Updated: 2017/02/22 16:33:30 by upierre-         ###   ########.fr       */
+/*   Updated: 2017/02/24 14:38:09 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,16 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 4096
-
-void		ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void		ft_putstr(char *str)
-{
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
+#define BUF_SIZE 1
 
 int		ft_display_file(int fd)
 {
 	int		ret;
-	char	buf[BUF_SIZE + 1];
+	char	buf[BUF_SIZE];
 
-	ret = read(fd, buf, BUF_SIZE);
-	buf[ret] = '\0';
-	ft_putstr(buf);
-	return(0);
+	while ((ret = read(fd, buf, BUF_SIZE)) > 0)
+		write(1, buf, ret);
+	return (0);
 }
 
 int		main(int ac, char **av)
@@ -47,13 +32,13 @@ int		main(int ac, char **av)
 	int		fd;
 
 	if (ac < 2)
-		ft_putstr("File name missing.\n");
+		write(1, "File name missing.\n", 19);
 	if (ac > 2)
-		ft_putstr("Too many arguments.\n");
+		write(1, "Too many arguments.\n", 20);
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
 		ft_display_file(fd);
 	}
-	return(0);
+	return (0);
 }

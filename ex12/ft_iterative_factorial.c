@@ -16,7 +16,7 @@ int		ft_iterative_factorial(int nb)
 	int		res;
 
 	if (nb < 2)
-		return(0);
+		return (0);
 	i = 0;
 	res = 1;
 	while (i < nb)
@@ -24,5 +24,5 @@ int		ft_iterative_factorial(int nb)
 		res *= (nb - i);
 		i++;
 	}
-	return(res);
+	return (res);
 }

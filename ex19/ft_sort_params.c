@@ -20,14 +20,14 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
-	while(*str)
+	while (*str)
 	{
 		ft_putchar(*str);
 		str++;
 	}
 }
 
-int		main(int ac, char **av)
+void	ft_sort_params(char **av)
 {
 	char	*str;
 	int		i;
@@ -54,6 +54,13 @@ int		main(int ac, char **av)
 			i2 = i + 1;
 		}
 	}
+}
+
+int		main(int ac, char **av)
+{
+	int		i;
+
+	ft_sort_params(av);
 	i = 1;
 	while (i < ac)
 	{
@@ -61,5 +68,5 @@ int		main(int ac, char **av)
 		ft_putchar('\n');
 		i++;
 	}
-	return(0);
+	return (0);
 }

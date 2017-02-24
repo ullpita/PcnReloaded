@@ -1,40 +1,20 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/24 14:10:07 by upierre-          #+#    #+#             */
+/*   Updated: 2017/02/24 14:12:14 by upierre-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putchar(char c)
+int		ft_recursive_factorial(int nb)
 {
-  write(1, &c, 1);
-}
-
-void ft_putnbr(int nb)
-{
-    if(nb < 0)
-    {
-      ft_putchar('-');
-      nb = -nb;
-    }
-    if(nb >= 10)
-    {
-      ft_putnbr(nb /10);
-      ft_putnbr(nb % 10);
-    }
-    else
-      ft_putchar(nb + '0');
-}
-
-int   ft_recursive_factorial(int nb)
-{
-  if (nb < 0)
-    return (0);
-  if (nb == 1 || nb == 0)
-    return(1);
-  return(nb * ft_recursive_factorial(nb - 1));
-}
-
-int main(void)
-{
-  int i;
-
-  i = ft_recursive_factorial(5);
-  ft_putnbr(i);
-  return (0);
+	if (nb < 0)
+		return (0);
+	if (nb == 1 || nb == 0)
+		return (1);
+	return (nb * ft_recursive_factorial(nb - 1));
 }

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upierre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/22 14:23:23 by upierre-          #+#    #+#             */
-/*   Updated: 2017/02/22 14:23:25 by upierre-         ###   ########.fr       */
+/*   Created: 2017/02/22 12:40:23 by upierre-          #+#    #+#             */
+/*   Updated: 2017/02/22 12:40:24 by upierre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
 
-int		ft_strcmp(char *s1, char *s2)
-{
-	while (*s1 || *s2)
-	{
-		if (*s1 < *s2)
-			return (-1);
-		if (*s1 > *s2)
-			return(1);
-		s1++;
-		s2++;
-		if (*s1 == *s2)
-			return(0);
-	}
-	return(0);
-}
+# define LIBFT_H
+# include <unistd.h>
+
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+void	ft_swap(int *a, int *b);
+int		ft_strcmp(char *s1, char *s2);
+
+#endif

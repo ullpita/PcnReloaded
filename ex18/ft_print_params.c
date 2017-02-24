@@ -37,5 +37,5 @@ int		main(int av, char **ac)
 		ft_putchar('\n');
 		i++;
 	}
-	return(0);
-}	
+	return (0);
+}

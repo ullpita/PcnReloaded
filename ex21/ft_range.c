@@ -14,10 +14,20 @@
 
 int		*ft_range(int min, int max)
 {
+	int *tab;
+	int i;
 
-}
-
-int		main()
-{
-
+	if (min >= max)
+		return (NULL);
+	i = max - min;
+	tab = (int*)malloc(sizeof(*tab) * (i + 1));
+	i = 0;
+	while (min < max)
+	{
+		tab[i] = min;
+		i++;
+		min++;
+	}
+	tab[i] = '\0';
+	return (tab);
 }
