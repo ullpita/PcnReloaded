@@ -1,1 +1,1 @@
-find . -type f -name \*.sh | cut -d . -f 2
+find .  -name "*.sh" -exec basename {} \; | rev | cut -c 4- | rev

@@ -27,7 +27,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	ft_sort_params(char **av)
+void	ft_sort_params(int ac, char **av)
 {
 	char	*str;
 	int		i;
@@ -60,7 +60,7 @@ int		main(int ac, char **av)
 {
 	int		i;
 
-	ft_sort_params(av);
+	ft_sort_params(ac, av);
 	i = 1;
 	while (i < ac)
 	{
